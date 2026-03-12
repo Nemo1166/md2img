@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    image: md2img:latest
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    volumes:
+      - ./public:/app/public
+    env_file:
+      - .env
+    restart: unless-stopped
